@@ -51,6 +51,8 @@ export default{
             {{film.original_title }}<br>
             {{film.original_language}}<br>
             {{film.vote_average}}
+            <i v-for="star in (Math.floor(film.vote_average / 2))" class="fa-solid fa-star"></i>
+            <i v-for="star in (5 - Math.floor(film.vote_average / 2))" class="fa-regular fa-star"></i>
         </li>
         <li v-for="film in store.series">
                 <img v-if="film.poster_path.length > 0" :src="'https://image.tmdb.org/t/p/w342/' + film.poster_path" alt="">
@@ -62,6 +64,8 @@ export default{
             <img v-else :src="'https://flagsapi.com/' + film.original_language.toUpperCase() + '/flat/32.png'">
             {{film.original_title }}<br>
             {{film.vote_average}}
+            <i v-for="star in (Math.floor(film.vote_average / 2))" class="fa-solid fa-star"></i>
+            <i v-for="star in (5 - Math.floor(film.vote_average / 2))" class="fa-regular fa-star"></i>
 
         </li>
     </ul>
