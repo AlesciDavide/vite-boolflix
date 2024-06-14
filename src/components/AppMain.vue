@@ -42,8 +42,8 @@ export default{
     <ul>
         <li v-for="film in store.films">
             {{film.title}} <br>
-                <img v-if="film.poster_path.length > 0" :src="'https://image.tmdb.org/t/p/w342/' + film.poster_path" alt="">
-                <img v-else src="" alt="Image not found"> <br>
+            <img v-if="film.poster_path == null"  src="" alt="Image not found">
+            <img v-else :src="'https://image.tmdb.org/t/p/w342/' + film.poster_path" alt="">
             <img v-if="(film.original_language.toUpperCase() == 'JA')" :src="'https://flagsapi.com/JP/flat/32.png'">
             <img v-else-if="(film.original_language.toUpperCase() == 'EN')" :src="'https://flagsapi.com/GB/flat/32.png'">
             <img v-else-if="(film.original_language.toUpperCase() == 'HI')" alt="HI">
@@ -55,8 +55,8 @@ export default{
             <i v-for="star in (5 - Math.floor(film.vote_average / 2))" class="fa-regular fa-star"></i>
         </li>
         <li v-for="film in store.series">
-                <img v-if="film.poster_path.length > 0" :src="'https://image.tmdb.org/t/p/w342/' + film.poster_path" alt="">
-                <img v-else src="" alt="Image not found">
+            <img v-if="film.poster_path == null"  src="" alt="Image not found">
+                <img v-else :src="'https://image.tmdb.org/t/p/w342/' + film.poster_path" alt="">
             {{film.original_name}} <br>
             <img v-if="(film.original_language.toUpperCase() == 'JA')" :src="'https://flagsapi.com/JP/flat/32.png'">
             <img v-else-if="(film.original_language.toUpperCase() == 'EN')" :src="'https://flagsapi.com/GB/flat/32.png'">
