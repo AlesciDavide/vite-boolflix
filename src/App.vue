@@ -1,14 +1,12 @@
 <script>
 import AppMain from './components/AppMain.vue';
 import AppHeader from './components/AppHeader.vue';
-import AppCreatedFlag from './components/AppCreatedFlag.vue';
 import {store} from './store.js';
 
 export default{
     components:{
       AppMain,
       AppHeader,
-      AppCreatedFlag,
     },
       data() {
           return{
@@ -21,7 +19,6 @@ export default{
 <template>
   <AppHeader/>
   <AppMain/>
-<AppCreatedFlag/>
 </template>
 
 <style lang="scss">
