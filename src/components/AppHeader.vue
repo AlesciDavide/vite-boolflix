@@ -83,7 +83,7 @@ header{
                 justify-content: center;
                 flex-direction: row;
                 color: white;
-                
+                align-items: center;
             }
     }
     ul{
@@ -96,6 +96,10 @@ header{
     }
     img{
         width: 120px;
+        margin-right: .5rem;
+    }
+    
+    h2{
         margin-right: .5rem;
     }
 </style>

@@ -117,6 +117,7 @@ export default{
                         padding: .3rem;
                         &:hover{
                             opacity: .5;
+                            transition: all 0.25s ease-out;
                                 .my-hover{
                                     display: inline;
                             }

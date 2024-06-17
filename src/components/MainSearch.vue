@@ -51,9 +51,23 @@ export default{
 
 <template>
     <input type="text" placeholder="Cerca un film" v-model="inputSearch" @keyup.enter="getFilms">
-    <button @click="getFilms">Cerca</button>
+    <button @click="getFilms"><i class="fa fa-search"></i></button>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+    input {
+        max-width: 40px;
+        transition: all 0.25s ease-out;
+        margin-right: .5rem;
+    }
+    input:focus {
+        max-width: 180px;
+    }
+    button{
+        color: white;
+        background-color: transparent;
+        border: none;
+        margin-right: .5rem;
+    }
 
 </style>
