@@ -47,43 +47,55 @@ export default{
 </script>
 
 <template>
-    <section>
-        <div>
-            <img src="../assets/img/logo.png" alt="Netflix">
-            <ul>
-                <li v-for="link in headerLinks">
-                    {{link.name}}
-                </li>
-            </ul>
-        </div>
-        <div>
-                    <MainSearch/>
-                    <h2>Bambini</h2>
-                    <i class="fa-regular fa-bell"></i>
-        </div>
-    </section>
+    <header>
+
+        <section>
+            <div>
+                <img src="../assets/img/logo.png" alt="Netflix">
+                <ul>
+                    <li v-for="link in headerLinks">
+                        {{link.name}}
+                    </li>
+                </ul>
+            </div>
+            <div>
+                        <MainSearch/>
+                        <h2>Bambini</h2>
+                        <i class="fa-regular fa-bell"></i>
+            </div>
+        </section>
+    </header>
 </template>
 
 <style scoped>
+header{
+    background-color: #191919;
+}
     section{
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: .5rem 0;
-        background-color: #191919;
+        width: 98vw;
+        margin: 0 auto;
             div{
                 display: flex;
                 justify-content: center;
                 flex-direction: row;
                 color: white;
+                
             }
     }
     ul{
         display: flex;
         flex-direction: row;
         align-items: center;
+            li{
+                margin-right: .5rem;
+            }
     }
     img{
         width: 120px;
+        margin-right: .5rem;
     }
 </style>

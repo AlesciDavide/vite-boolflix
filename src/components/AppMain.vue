@@ -39,9 +39,8 @@ export default{
 </script>
 
 <template>
-    <main>
 
-        <h1>Originali Netflix</h1>
+        <h1 v-if="store.films.length > 0">Films</h1>
         <section class="container-film">
             <ul>
                 <li v-for="film in store.films">
@@ -66,6 +65,7 @@ export default{
                 </li>
             </ul>
         </section>
+        <h1 v-if="store.series.length > 0">Series</h1>
         <section class="container-series">
             <ul>
                 <li v-for="serie in store.series">
@@ -74,6 +74,7 @@ export default{
 
                     <div class="my-hover">
                         {{serie.original_name}} <br>
+
                         <img v-if="(serie.original_language.toUpperCase() == 'JA')" :src="'https://flagsapi.com/JP/flat/32.png'">
                         <img v-else-if="(serie.original_language.toUpperCase() == 'EN')" :src="'https://flagsapi.com/GB/flat/32.png'">
                         <img v-else-if="(serie.original_language.toUpperCase() == 'HI')" alt="HI">
@@ -87,20 +88,24 @@ export default{
                 </li>
             </ul>
         </section>
-    </main>
 </template>
 
 <style lang="scss" scoped>
-    main{
-        background-color: #191919;
-    }
+    
     h1{
-                color: white;
-            }
+        color: white;
+        width: 98vw;
+        margin: 0 auto;
+        
+    }
+    img{
+        object-fit: cover;
+        height: 100%;
+    }
     .container-film{
         overflow-x: scroll;
-        width: 100vw;
-        
+        width: 98vw;
+        margin: 0 auto;
         
             ul{
                 display: flex;
@@ -109,6 +114,7 @@ export default{
                         display: flex;
                         flex-direction: column;
                         position: relative;
+                        padding: .3rem;
                         &:hover{
                             opacity: .5;
                                 .my-hover{
@@ -122,10 +128,24 @@ export default{
     .container-series{
         display: flex;
         overflow-x: scroll;
+        width: 98vw;
+        margin: 0 auto;
             ul{
                 display: flex;
                 justify-content: center;
                 flex-direction: row;
+                li{
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+                        padding: .3rem;
+                        &:hover{
+                            opacity: .5;
+                                .my-hover{
+                                    display: inline;
+                            }
+            }
+                    }
             }
     }
 
