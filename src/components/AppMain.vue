@@ -40,6 +40,7 @@ export default{
 <template>
 
         <h1 v-if="store.films.length > 0">Films</h1>
+        <h1 v-else>Films not found</h1>
         <section class="container-film">
             <ul>
                 <li v-for="film in store.films">
@@ -98,7 +99,7 @@ export default{
 </template>
 
 <style lang="scss" scoped>
-@use '../styles/partials/flags' as *;
+@use '../../node_modules/@textabledev/langs-flags-list/lang-flags.css' as *;
     
     h1{
         color: white;
