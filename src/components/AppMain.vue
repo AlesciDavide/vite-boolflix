@@ -48,26 +48,20 @@ export default{
                     <img v-else :src="'https://image.tmdb.org/t/p/w342/' + film.poster_path" alt="">
 
                     <div class="my-hover">
-                        <p>
+                        <h2>
                             {{film.title}}
-                        </p>
+                        </h2>
                         <img class="flag lang-icon" :class="'lang-icon-' + film.original_language" src="" alt="">
-
                         <p v-if="film.title != film.original_title">
                             {{film.original_title }}
-
                         </p>
-                        <p>
-
-                            {{Math.floor(film.vote_average / 2)}}
+                        <p class="overview">
+                            {{ film.overview }}
                         </p>
-                        
                         <div>
                             <i v-for="star in (Math.floor(film.vote_average / 2))" class="fa-solid fa-star"></i>
                             <i v-for="star in (5 - Math.floor(film.vote_average / 2))" class="fa-regular fa-star"></i>
-
                         </div>
-
                     </div>
                 </li>
             </ul>
@@ -80,23 +74,19 @@ export default{
                     <img v-else :src="'https://image.tmdb.org/t/p/w342/' + serie.poster_path" alt="">
 
                     <div class="my-hover">
-                        <p>
+                        <h2>
                             {{serie.original_name}} 
 
-                        </p>
+                        </h2>
 
                         <img class="flag lang-icon" :class="'lang-icon-' + serie.original_language" src="" alt="">
                         <p v-if="serie.original_name != serie.original_title">
                             {{serie.original_title }}
-
                         </p>
                         <p>
-
-                            {{Math.floor(serie.vote_average / 2)}}
+                            {{ serie.overview }}
                         </p>
-
                         <div>
-
                             <i v-for="star in (Math.floor(serie.vote_average / 2))" class="fa-solid fa-star"></i>
                             <i v-for="star in (5 - Math.floor(serie.vote_average / 2))" class="fa-regular fa-star"></i>
                         </div>
@@ -115,6 +105,13 @@ export default{
         width: 98vw;
         margin: 0 auto;
         
+    }
+    h2{
+        font-size: 2rem;
+        color: white;
+    }
+    .fa-solid{
+        color: yellow;
     }
     img{
         object-fit: cover;
@@ -137,11 +134,14 @@ export default{
                         color: white;
                         font-size: 1.5rem;
                         &:hover{
-                            transition: all 0.25s ease-out;
+                            
                                 .my-hover{
                                     display: flex;
                                     flex-direction: column;
-                                    
+                                    align-items: center;
+                                    justify-content: end;
+                                    padding: 2rem 0;
+
                                     
                             }
             }
@@ -162,7 +162,12 @@ export default{
         width: -moz-available;
         
     }
-
+.overview{
+    height: 150px;
+    overflow: auto;
+    margin-left: .3rem;
+    padding: 0 .3rem;
+}
 
 .lang-icon{
                     background-image: url(../assets/img/lang-flags.png);
