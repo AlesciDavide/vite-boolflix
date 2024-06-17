@@ -1,7 +1,6 @@
 <script>
 import AppMain from './components/AppMain.vue';
 import AppHeader from './components/AppHeader.vue';
-import {store} from './store.js';
 
 export default{
     components:{

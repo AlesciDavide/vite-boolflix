@@ -51,9 +51,7 @@ export default{
                         <p>
                             {{film.title}}
                         </p>
-                        
-                        <img  v-if="film.original_language == 'en'" class="flag" src="https://flagcdn.com/16x12/gb.png">
-                        <img class="flag" v-else-if="film.original_language == 'it'" src="https://flagcdn.com/16x12/it.png" alt="">
+                        <img class="flag lang-icon" :class="'lang-icon-' + film.original_language" src="" alt="">
 
                         <p v-if="film.title != film.original_title">
                             {{film.original_title }}
@@ -87,9 +85,7 @@ export default{
 
                         </p>
 
-                        
-                        <img  v-if="serie.original_language == 'en'" class="flag" src="https://flagcdn.com/16x12/gb.png">
-                        <img class="flag" v-else-if="serie.original_language == 'it'" src="https://flagcdn.com/16x12/it.png" alt="">
+                        <img class="flag lang-icon" :class="'lang-icon-' + serie.original_language" src="" alt="">
                         <p v-if="serie.original_name != serie.original_title">
                             {{serie.original_title }}
 
@@ -112,6 +108,7 @@ export default{
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/flags' as *;
     
     h1{
         color: white;
@@ -165,9 +162,9 @@ export default{
         width: -moz-available;
         
     }
-.flag{
-    width: 30px;
-    height: 20px;
-}
 
+
+.lang-icon{
+                    background-image: url(../assets/img/lang-flags.png);
+                }
 </style>
