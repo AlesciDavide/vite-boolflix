@@ -162,7 +162,7 @@ export default{
         position: absolute;
         background-color:rgb(0, 0, 0, 0.5);
         height: 100%;
-        aspect-ratio: 1/1;
+        width: -moz-available;
         
     }
 .flag{
