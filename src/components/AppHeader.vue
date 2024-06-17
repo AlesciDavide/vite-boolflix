@@ -49,7 +49,7 @@ export default{
 <template>
     <section>
         <div>
-            <img src="" alt="Netflix">
+            <img src="../assets/img/logo.png" alt="Netflix">
             <ul>
                 <li v-for="link in headerLinks">
                     {{link.name}}
@@ -69,14 +69,21 @@ export default{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: .5rem 0;
+        background-color: #191919;
             div{
                 display: flex;
                 justify-content: center;
                 flex-direction: row;
+                color: white;
             }
     }
     ul{
         display: flex;
         flex-direction: row;
+        align-items: center;
+    }
+    img{
+        width: 120px;
     }
 </style>
