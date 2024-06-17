@@ -83,7 +83,7 @@ export default{
                         <p v-if="serie.original_name != serie.original_title">
                             {{serie.original_title }}
                         </p>
-                        <p>
+                        <p class="overview">
                             {{ serie.overview }}
                         </p>
                         <div>
@@ -120,6 +120,7 @@ export default{
     .container-film,
     .container-series{
         overflow-x: scroll;
+        overflow-y: clip;
         width: 98vw;
         margin: 0 auto;
         
@@ -133,6 +134,8 @@ export default{
                         padding: .3rem;
                         color: white;
                         font-size: 1.5rem;
+                        border: 3px solid rgb(92, 92, 92);
+                        box-shadow: 2px white;
                         &:hover{
                             
                                 .my-hover{
@@ -157,7 +160,7 @@ export default{
     .my-hover{
         display: none;
         position: absolute;
-        background-color:rgb(0, 0, 0, 0.5);
+        background-color:rgb(0, 0, 0, 0.8);
         height: 100%;
         width: -moz-available;
         
