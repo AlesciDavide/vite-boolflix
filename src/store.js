@@ -4,5 +4,4 @@ export const store = reactive({
     films: [],
     series: [],
     searchFilm: '',
-    flag: [],
 });

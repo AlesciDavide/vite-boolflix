@@ -15,7 +15,6 @@ export default{
                 axios.get('https:/api.themoviedb.org/3/search/movie?api_key=1231079dd3a1fe954db3fe98b67aa52f&language=it-IT&query=' + store.searchFilm).then(response => {
                     this.store.films = response.data.results;
                     console.log(response.data.results);
-                    
                 })
                 .catch(function (error) {
                     // handle error

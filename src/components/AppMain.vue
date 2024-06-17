@@ -10,6 +10,7 @@ export default{
     data() {
         return{
             store,
+            flag: [],
         }
     },
     methods:{
@@ -32,8 +33,6 @@ export default{
     },
     created(){
         this.getFilmsStart();
-        
-        
     },
 }
 </script>
@@ -52,14 +51,24 @@ export default{
                         <p>
                             {{film.title}}
                         </p>
-                        <img v-if="(film.original_language.toUpperCase() == 'JA')" :src="'https://flagsapi.com/JP/flat/32.png'">
-                        <img v-else-if="(film.original_language.toUpperCase() == 'EN')" :src="'https://flagsapi.com/GB/flat/32.png'">
-                        <img v-else :src="'https://flagsapi.com/' + film.original_language.toUpperCase() + '/flat/32.png'">
-                        {{film.original_title }}<br>
-                        {{film.original_language}}<br>
-                        {{film.vote_average}}
-                        <i v-for="star in (Math.floor(film.vote_average / 2))" class="fa-solid fa-star"></i>
-                        <i v-for="star in (5 - Math.floor(film.vote_average / 2))" class="fa-regular fa-star"></i>
+                        
+                        <img  v-if="film.original_language == 'en'" class="flag" src="https://flagcdn.com/16x12/gb.png">
+                        <img class="flag" v-else-if="film.original_language == 'it'" src="https://flagcdn.com/16x12/it.png" alt="">
+
+                        <p v-if="film.title != film.original_title">
+                            {{film.original_title }}
+
+                        </p>
+                        <p>
+
+                            {{Math.floor(film.vote_average / 2)}}
+                        </p>
+                        
+                        <div>
+                            <i v-for="star in (Math.floor(film.vote_average / 2))" class="fa-solid fa-star"></i>
+                            <i v-for="star in (5 - Math.floor(film.vote_average / 2))" class="fa-regular fa-star"></i>
+
+                        </div>
 
                     </div>
                 </li>
@@ -73,16 +82,28 @@ export default{
                     <img v-else :src="'https://image.tmdb.org/t/p/w342/' + serie.poster_path" alt="">
 
                     <div class="my-hover">
-                        {{serie.original_name}} <br>
+                        <p>
+                            {{serie.original_name}} 
 
-                        <img v-if="(serie.original_language.toUpperCase() == 'JA')" :src="'https://flagsapi.com/JP/flat/32.png'">
-                        <img v-else-if="(serie.original_language.toUpperCase() == 'EN')" :src="'https://flagsapi.com/GB/flat/32.png'">
-                        <img v-else-if="(serie.original_language.toUpperCase() == 'HI')" alt="HI">
-                        <img v-else :src="'https://flagsapi.com/' + serie.original_language.toUpperCase() + '/flat/32.png'">
-                        {{serie.original_title }}<br>
-                        {{serie.vote_average}}
-                        <i v-for="star in (Math.floor(serie.vote_average / 2))" class="fa-solid fa-star"></i>
-                        <i v-for="star in (5 - Math.floor(serie.vote_average / 2))" class="fa-regular fa-star"></i>
+                        </p>
+
+                        
+                        <img  v-if="serie.original_language == 'en'" class="flag" src="https://flagcdn.com/16x12/gb.png">
+                        <img class="flag" v-else-if="serie.original_language == 'it'" src="https://flagcdn.com/16x12/it.png" alt="">
+                        <p v-if="serie.original_name != serie.original_title">
+                            {{serie.original_title }}
+
+                        </p>
+                        <p>
+
+                            {{Math.floor(serie.vote_average / 2)}}
+                        </p>
+
+                        <div>
+
+                            <i v-for="star in (Math.floor(serie.vote_average / 2))" class="fa-solid fa-star"></i>
+                            <i v-for="star in (5 - Math.floor(serie.vote_average / 2))" class="fa-regular fa-star"></i>
+                        </div>
 
                     </div>
                 </li>
@@ -102,7 +123,8 @@ export default{
         object-fit: cover;
         height: 100%;
     }
-    .container-film{
+    .container-film,
+    .container-series{
         overflow-x: scroll;
         width: 98vw;
         margin: 0 auto;
@@ -115,39 +137,20 @@ export default{
                         flex-direction: column;
                         position: relative;
                         padding: .3rem;
+                        color: white;
+                        font-size: 1.5rem;
                         &:hover{
-                            opacity: .5;
                             transition: all 0.25s ease-out;
                                 .my-hover{
-                                    display: inline;
+                                    display: flex;
+                                    flex-direction: column;
+                                    
+                                    
                             }
             }
                     }
             }
             
-    }
-    .container-series{
-        display: flex;
-        overflow-x: scroll;
-        width: 98vw;
-        margin: 0 auto;
-            ul{
-                display: flex;
-                justify-content: center;
-                flex-direction: row;
-                li{
-                        display: flex;
-                        flex-direction: column;
-                        position: relative;
-                        padding: .3rem;
-                        &:hover{
-                            opacity: .5;
-                                .my-hover{
-                                    display: inline;
-                            }
-            }
-                    }
-            }
     }
 
     .my-img-not-found{
@@ -157,8 +160,14 @@ export default{
     .my-hover{
         display: none;
         position: absolute;
-
+        background-color:rgb(0, 0, 0, 0.5);
+        height: 100%;
+        aspect-ratio: 1/1;
+        
     }
-
+.flag{
+    width: 30px;
+    height: 20px;
+}
 
 </style>

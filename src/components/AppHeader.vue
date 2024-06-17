@@ -1,10 +1,10 @@
 <script>
-import MainSearch from '../components/MainSearch.vue'
+import MainSearch from '../components/MainSearch.vue';
 import {store} from '../store.js';
+
 export default{
     components:{
         MainSearch,
-        store,
     },
     data() {
         return{
@@ -41,8 +41,9 @@ export default{
                 },
             ],
             store,
+            
         }
-    }
+    },
 }
 </script>
 
