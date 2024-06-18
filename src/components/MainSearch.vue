@@ -49,24 +49,61 @@ export default{
 </script>
 
 <template>
-    <input type="text" placeholder="Cerca un film" v-model="inputSearch" @keyup.enter="getFilms">
-    <button @click="getFilms"><i class="fa fa-search"></i></button>
+
+        <input type="text" placeholder="Cerca un film" v-model="inputSearch" @keyup.enter="getFilms">
+        <button @click="getFilms"><i class="fa fa-search"></i></button>
 </template>
 
 <style lang="scss" scoped>
-    input {
-        max-width: 40px;
-        transition: all 0.25s ease-out;
-        margin-right: .5rem;
+input {
+    background-color: #383838;
+    border: 1ex solid none;
+    border-top-width: 1.7em;
+    margin: 0;
+    padding: 0;
+    color: #383838;
+    word-wrap: break-word;
+    outline: 7px solid #383838;
+    height: 30px;
+    font-size: 17px;
+    text-align: center;
+    transition: all .5s;
+    max-width: 190px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
     }
+
+    input:hover {
+    border-top-width: 0.2em;
+    background-color: #f1e8e8;
+    }
+
     input:focus {
-        max-width: 180px;
+    border-top-width: 0.2em;
+    background-color: #f1e8e8;
     }
     button{
-        color: white;
-        background-color: transparent;
-        border: none;
-        margin-right: .5rem;
-    }
+            background-color: #383838;
+        border: 1ex solid none;
+        border-top-width: 1.7em;
+        margin: 0;
+        padding: 0;
+        color: #383838;
+        word-wrap: break-word;
+        outline: 7px solid #383838;
+        height: 30px;
+        font-size: 17px;
+        text-align: center;
+        transition: all .5s;
+        max-width: 190px;
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+        display: flex;
+        align-items: self-end;
+        margin-right: 1rem;
+            i{
+                font-size: x-large;
+            }
+        }
 
 </style>

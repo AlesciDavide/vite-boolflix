@@ -52,7 +52,7 @@ export default{
 
         <section>
             <div>
-                <img src="../assets/img/logo.png" alt="Netflix">
+                <img src="../assets/img/Boolflix.svg" alt="Boolflix">
                 <ul>
                     <li v-for="link in headerLinks">
                         {{link.name}}
@@ -92,11 +92,12 @@ header{
         flex-direction: row;
         align-items: center;
             li{
-                margin-right: .5rem;
+                margin-right: 1rem;
+                font-size: 1.2rem;
             }
     }
     img{
-        width: 120px;
+        width: 110px;
         margin-right: .5rem;
     }
     
