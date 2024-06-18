@@ -81,6 +81,7 @@ input {
     input:focus {
     border-top-width: 0.2em;
     background-color: #f1e8e8;
+    
     }
     button{
             background-color: #383838;

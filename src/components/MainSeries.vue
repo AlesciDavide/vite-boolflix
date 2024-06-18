@@ -82,6 +82,11 @@ export default{
                         font-size: 1.5rem;
                         border: 3px solid rgb(92, 92, 92);
                         box-shadow: 2px white;
+                        border-radius: 5%;
+                        margin-right: .3rem;
+                            img{
+                                border-radius: 4%;
+                            }
                         &:hover{
 
                             .my-hover{
@@ -91,6 +96,7 @@ export default{
                                     padding: 2rem 0;
                                     background-color:rgb(0, 0, 0, 0.8);
                                     animation: my_hover .5s linear;
+                                    border-radius: 5%;
                             }
             }
                     }
@@ -105,7 +111,6 @@ export default{
     .my-hover{
         display: none;
         position: absolute;
-        
         height: 100%;
         width: -moz-available;
         bottom: 0;
