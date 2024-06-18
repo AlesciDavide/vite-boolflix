@@ -20,16 +20,16 @@ export default{
 
                     <div class="my-hover">
                         <h2>
-                            {{serie.original_name}} 
+                            Titolo: {{serie.original_name}} 
 
                         </h2>
 
                         <img class="flag lang-icon" :class="'lang-icon-' + serie.original_language" src="" alt="">
-                        <p v-if="serie.original_name != serie.original_title">
-                            {{serie.original_title }}
-                        </p>
+                        <h2 v-if="serie.original_name != serie.original_title">
+                            Titolo originale: {{serie.original_title}}
+                        </h2>
                         <p class="overview">
-                            {{ serie.overview }}
+                            Trama: {{ serie.overview }}
                         </p>
                         <div>
                             <i v-for="star in (Math.floor(serie.vote_average / 2))" class="fa-solid fa-star"></i>
@@ -87,11 +87,10 @@ export default{
                             .my-hover{
                                     display: flex;
                                     flex-direction: column;
-                                    align-items: center;
                                     justify-content: end;
                                     padding: 2rem 0;
                                     background-color:rgb(0, 0, 0, 0.8);
-                                    
+                                    animation: my_hover .5s linear;
                             }
             }
                     }
@@ -109,6 +108,17 @@ export default{
         
         height: 100%;
         width: -moz-available;
+        bottom: 0;
+        left: 0;
+        h2{
+                margin-bottom: .5rem;
+            }
+            img{
+                    margin: 0 0 .5rem .5rem;
+                }
+            p{
+                margin-bottom: .5rem;
+            }
     }
 .overview{
     height: 150px;
@@ -119,5 +129,17 @@ export default{
 
 .lang-icon{
     background-image: url(../assets/img/lang-flags.png);
+}
+
+@keyframes my_hover {
+    0%{
+        height: 0%;
+        background-color:rgb(0, 0, 0, 0.1);
+    }
+    100%{
+        height: 100%;
+        background-color:rgb(0, 0, 0, 0.8);
+    }
+    
 }
 </style>

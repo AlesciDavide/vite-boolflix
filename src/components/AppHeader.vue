@@ -63,12 +63,14 @@ export default{
                         <MainSearch/>
                         <h2>Bambini</h2>
                         <i class="fa-regular fa-bell"></i>
+                        <img class="my_users" src="../assets/img/ui.png" alt="">
+                        <i class="fa-solid fa-caret-down"></i>
             </div>
         </section>
     </header>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 header{
     background-color: #191919;
 }
@@ -99,6 +101,11 @@ header{
     img{
         width: 110px;
         margin-right: .5rem;
+    }
+    .my_users{
+        height: 30px;
+        width: 30px;
+        margin-left: 1.5rem;
     }
     
     h2{

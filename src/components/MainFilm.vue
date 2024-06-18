@@ -22,14 +22,14 @@ export default{
 
                     <div class="my-hover">
                         <h2>
-                            {{film.title}}
+                            Titolo: {{film.title}}
                         </h2>
                         <img class="flag lang-icon" :class="'lang-icon-' + film.original_language" src="" alt="">
-                        <p v-if="film.title != film.original_title">
-                            {{film.original_title }}
-                        </p>
+                        <h2 v-if="film.title != film.original_title">
+                            Titolo originale: {{film.original_title }}
+                        </h2>
                         <p class="overview">
-                            {{ film.overview }}
+                            Trama: {{ film.overview }}
                         </p>
                         <div>
                             <i v-for="star in (Math.floor(film.vote_average / 2))" class="fa-solid fa-star"></i>
@@ -53,7 +53,7 @@ export default{
         
     }
     h2{
-        font-size: 2rem;
+        font-size: 1.7rem;
         color: white;
     }
     .fa-solid{
@@ -87,11 +87,10 @@ export default{
                             .my-hover{
                                     display: flex;
                                     flex-direction: column;
-                                    align-items: center;
                                     justify-content: end;
-                                    padding: 2rem 0;
+                                    padding: 2rem .5rem;
                                     background-color:rgb(0, 0, 0, 0.8);
-                                    animation: gigi .5s linear;
+                                    animation: my_hover .5s linear;
                             }
             }
                     }
@@ -110,6 +109,15 @@ export default{
         width: -moz-available;
         bottom: 0;
         left: 0;
+            h2{
+                margin-bottom: .5rem;
+            }
+            img{
+                    margin: 0 0 .5rem .5rem;
+                }
+            p{
+                margin-bottom: .5rem;
+            }
     }
 .overview{
     height: 150px;
@@ -122,22 +130,10 @@ export default{
     background-image: url(../assets/img/lang-flags.png);
 }
 
-@keyframes gigi {
+@keyframes my_hover {
     0%{
         height: 0%;
         background-color:rgb(0, 0, 0, 0.1);
-    }
-    25%{
-        height: 25%;
-        background-color:rgb(0, 0, 0, 0.3);
-    }
-    50%{
-        height: 50%;
-        background-color:rgb(0, 0, 0, 0.5);
-    }
-    75%{
-        height: 75%;
-        background-color:rgb(0, 0, 0, 0.6);
     }
     100%{
         height: 100%;
